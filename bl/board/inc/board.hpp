@@ -19,7 +19,11 @@ class Board {
             true,
         std::enable_if_t<(std::is_convertible<std::tuple_element_t<2, Args>, Block*>::value && ...),
                          bool> = true>
-    void addBlocks(Args... children) {
-        (children.push_back(children), ...);
+    void addBlocks(Args... blck) {
+        (blocks.push_back(blck), ...);
+
+
+    private:
+    std::list<std::shared_ptr<Block>> blocks;
     }
 };
