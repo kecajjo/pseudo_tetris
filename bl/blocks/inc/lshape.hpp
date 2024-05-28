@@ -6,7 +6,8 @@
 
 class LShape : public Block {
    public:
-    explicit LShape() {}
-    std::list<std::pair<int, int>> getShape() const override;
-    ~LShape() = default;
+    explicit LShape();
+    explicit LShape(const LShape &l) = default;
+    explicit LShape(LShape &&l) = default;
+    ~LShape() override = default;
 };

@@ -16,7 +16,7 @@ int main() {
     v.push_back(std::make_unique<TShape>());
     for (auto &s : v){
         for(auto &p : s->getShape()){
-            std::cout << p.first << " " << p.second <<", ";
+            std::cout << p.x << " " << p.y <<", ";
         }
         std::cout << std::endl;
     }

@@ -6,7 +6,8 @@
 
 class Square : public Block {
    public:
-    explicit Square() {}
-    std::list<std::pair<int, int>> getShape() const override;
-    ~Square() = default;
+    explicit Square();
+    explicit Square(const Square &s) = default;
+    explicit Square(Square &&s) = default;
+    ~Square() override = default;
 };

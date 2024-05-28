@@ -6,7 +6,8 @@
 
 class Diagonal : public Block {
    public:
-    explicit Diagonal() {}
-    std::list<std::pair<int, int>> getShape() const override;
-    ~Diagonal() = default;
+    explicit Diagonal();
+    explicit Diagonal(const Diagonal &d) = default;
+    explicit Diagonal(Diagonal &&d) = default;
+    ~Diagonal() override = default;
 };

@@ -6,7 +6,8 @@
 
 class TShape : public Block {
    public:
-    explicit TShape() {}
-    std::list<std::pair<int, int>> getShape() const override;
-    ~TShape() = default;
+    explicit TShape();
+    explicit TShape(const TShape &t) = default;
+    explicit TShape(TShape &&t) = default;
+    ~TShape() override = default;
 };
