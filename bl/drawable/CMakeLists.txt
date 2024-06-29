@@ -1,2 +1,4 @@
-add_library(drawable static src/drawable.cpp)
-target_include_directories(drawable public ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+add_library(drawable STATIC
+    src/drawable.cpp
+)
+target_include_directories(drawable PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)

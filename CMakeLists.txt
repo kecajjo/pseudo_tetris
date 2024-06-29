@@ -10,4 +10,5 @@ add_subdirectory(bl)
 add_executable(tetris main/main.cpp)
 target_link_libraries(tetris PUBLIC 
     blocks
+    board
 )

@@ -3,6 +3,7 @@
 #include <list>
 #include <memory>
 #include <tuple>
+#include <unordered_map>
 #include <utility>
 
 class Drawable {
@@ -21,10 +22,12 @@ class Drawable {
     virtual Drawable &operator=(Drawable &&b);
     virtual ~Drawable() = default;
 
-    virtual std::list<Position> getShape() const final { return shape; };
-    virtual Color getColor() const final { return color; }
+    std::list<Position> getShape() const { return shape; };
+    Color getColor() const { return color; }
 
-    virtual std::list<std::pair<Position, std::weak_ptr<Drawable>>> getChildDrawables() const;
+    const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> getChildDrawables()
+        const;
+    void addChild(std::shared_ptr<Drawable> child, Position p);
 
    protected:
     explicit Drawable() = default;
@@ -32,4 +35,5 @@ class Drawable {
    protected:
     Color color = {255, 255, 255, 255};
     std::list<Position> shape;
+    std::unordered_map<std::shared_ptr<Drawable>, Position> children;
 };

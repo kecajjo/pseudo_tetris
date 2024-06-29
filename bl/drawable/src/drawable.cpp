@@ -1,5 +1,9 @@
 #include "drawable.hpp"
 
-std::list<std::pair<Drawable::Position, std::weak_ptr<Drawable>>> Drawable::getChildDrawables() const {
-    return std::list<std::pair<Position, std::weak_ptr<Drawable>>>();
+const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> Drawable::getChildDrawables() const {
+    return children;
+}
+
+void Drawable::addChild(std::shared_ptr<Drawable> child, Drawable::Position p){
+    children[child] = p;
 }

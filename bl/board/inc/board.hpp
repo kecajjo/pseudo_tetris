@@ -1,6 +1,7 @@
 #pragma once
 
 #include <type_traits>
+#include <unordered_set>
 
 #include "block.hpp"
 #include "drawable.hpp"
@@ -14,18 +15,11 @@ class Board : public Drawable {
     struct is_tuple<std::tuple<pos, pos, ptr>> : std::true_type {};
 
    public:
-    template <
-        class... Args, std::enable_if_t<(is_tuple<Args>::value && ...), bool> = true,
-        std::enable_if_t<(std::is_same<std::tuple_element_t<0, Args>, int>::value && ...), bool> =
-            true,
-        std::enable_if_t<(std::is_convertible<std::tuple_element_t<2, Args>, Block*>::value && ...),
-                         bool> = true>
-    void addBlocks(Args... blck) {
-        (blocks.push_back(
-             {Drawable::Position{std::get<0>(blck), std::get<1>(blck)}, std::get<2>(blck)}),
-         ...);
+    void addBlock(std::shared_ptr<Block> blck, Drawable::Position p) {
+        blocks.insert(blck);
+        addChild(blck, p);
     }
 
-    private:
-    std::list<std::pair<Position, std::shared_ptr<Block>>> blocks;
+   private:
+    std::unordered_set<std::shared_ptr<Block>> blocks;
 };
