@@ -7,18 +7,20 @@ on:
     types: 
       - edited
       - synchronize
+    branches:
+      - master
 
-# jobs:
-#   build-project:
-#     name: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: checkout
-#         uses: actions/checkout@v4
+jobs:
+  job1:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
 
-#     - name: Configure and Build
-#       uses: threeal/cmake-action@main
-#       with:
-#         c-compiler: gcc
-#         cxx-compiler: g++
-#         build-dir: build
+    - name: Configure and Build
+      uses: threeal/cmake-action@main
+      with:
+        c-compiler: gcc
+        cxx-compiler: g++
+        build-dir: build
