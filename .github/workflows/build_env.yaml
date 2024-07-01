@@ -18,9 +18,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-    - name: Configure and Build
-      uses: threeal/cmake-action@main
-      with:
-        c-compiler: gcc
-        cxx-compiler: g++
-        build-dir: build
+    # - name: Configure and Build
+    #   uses: threeal/cmake-action@main
+    #   with:
+    #     c-compiler: gcc
+    #     cxx-compiler: g++
+    #     build-dir: build
