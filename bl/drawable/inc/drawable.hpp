@@ -17,9 +17,9 @@ class Drawable {
     };
 
     explicit Drawable(const Drawable &d);
-    virtual Drawable &operator=(const Drawable &b);
-    explicit Drawable(Drawable &&b);
-    virtual Drawable &operator=(Drawable &&b);
+    virtual Drawable &operator=(const Drawable &d);
+    explicit Drawable(Drawable &&d);
+    virtual Drawable &operator=(Drawable &&d);
     virtual ~Drawable() = default;
 
     std::list<Position> getShape() const { return shape; };
