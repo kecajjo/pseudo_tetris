@@ -1,9 +1,13 @@
 name: Build project
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
   pull_request:
-    branches: [ master ]
+    types: 
+      - edited
+    branches: 
+      - master
 
 jobs:
   build-project:
