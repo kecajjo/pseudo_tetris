@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build_project:
+  build-project:
     name: build
     runs-on: ubuntu-latest
     steps:
