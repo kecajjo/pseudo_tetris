@@ -1,0 +1,21 @@
+name: Build project
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_project:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+    - name: Configure and Build
+      uses: threeal/cmake-action@main
+      with:
+        c-compiler: gcc
+        cxx-compiler: g++
+        build-dir: build
