@@ -41,4 +41,4 @@ jobs:
       - name: Clang-format
         uses: akopachov/git-clang-format-diff-action@v1.0.0
         with:
-          commit: master # Ref to compare with
+          commit: origin/master # Ref to compare with
