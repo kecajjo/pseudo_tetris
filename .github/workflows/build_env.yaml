@@ -15,9 +15,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Setup
+        run: git fetch origin master
+          && apt install clang-tidy
+
       - name: Checkout
         uses: actions/checkout@v4
-      - run: git fetch origin master
 
       - name: Configure CMake
         run: >
