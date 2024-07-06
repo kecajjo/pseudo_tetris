@@ -1,2 +1,3 @@
 build
 .vscode
+clang_tidy_fixes.yaml

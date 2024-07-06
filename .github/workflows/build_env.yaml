@@ -12,15 +12,29 @@ on:
 
 jobs:
   job1:
-    name: build
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure and Build
-        uses: threeal/cmake-action@main
+      - name: Configure CMake
+        run: >
+          cd ${{github.workspace}}
+          && cmake . -B ${{github.workspace}}/build
+          -DTIDY=OFF
+
+      - name: Build
+        run: >
+          cd ${{github.workspace}}/build
+          && make
+
+      - name: Static code analysis
+        run: > 
+          git diff -U0 master
+          | clang-tidy-diff -p1 -path=build
+
+      - name: Clang-format
+        uses: akopachov/git-clang-format-diff-action@v1.0.0
         with:
-          c-compiler: gcc
-          cxx-compiler: g++
-          build-dir: build
+          commit: master # Ref to compare with

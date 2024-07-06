@@ -1,5 +1,6 @@
 #pragma once
 
+#include <limits>
 #include <list>
 #include <memory>
 #include <tuple>
@@ -32,8 +33,10 @@ class Drawable {
    protected:
     explicit Drawable() = default;
 
-   protected:
-    Color color = {255, 255, 255, 255};
+    Color color = {max_color_val, 255, max_color_val, max_color_val};
     std::list<Position> shape;
     std::unordered_map<std::shared_ptr<Drawable>, Position> children;
+
+    private:
+    static constexpr unsigned max_color_val = std::numeric_limits<unsigned char>::max();
 };

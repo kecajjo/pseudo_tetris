@@ -1,5 +1,4 @@
 add_library(blocks STATIC
-   src/block.cpp
    src/square.cpp
    src/diagonal.cpp
    src/lshape.cpp
