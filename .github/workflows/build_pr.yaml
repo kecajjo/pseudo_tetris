@@ -1,8 +1,5 @@
 name: Build project
 on:
-  push:
-    branches: 
-      - master
   pull_request:
     types: 
       - edited
@@ -11,7 +8,7 @@ on:
       - master
 
 jobs:
-  job1:
+  build:
     name: Build
     runs-on: ubuntu-latest
     steps:

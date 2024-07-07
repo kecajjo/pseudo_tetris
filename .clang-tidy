@@ -6,7 +6,8 @@ Checks: >
   performance-*,
   readability-*,
   -modernize-use-trailing-return-type,
-  -readability-identifier-length
+  -readability-identifier-length,
+  -performance-avoid-endl
 WarningsAsErrors: >
   clang-diagnostic-*,
   clang-analyzer-*,
@@ -15,8 +16,8 @@ WarningsAsErrors: >
   performance-*,
   readability-*,
   -modernize-use-trailing-return-type,
-  -readability-identifier-length
+  -readability-identifier-length,
+  -performance-avoid-endl
 HeaderFilterRegex: ''
-AnalyzeTemporaryDtors: false
 FormatStyle:     file
 

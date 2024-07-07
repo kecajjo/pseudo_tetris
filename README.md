@@ -1,4 +1,7 @@
 # Tetris
+![Build](https://github.com/kecajjo/pseudo_tetris/actions/workflows/<build_env.yaml/badge.svg)
+
+
 
 ## Purpose
 
