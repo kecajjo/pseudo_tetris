@@ -34,9 +34,6 @@ jobs:
           && make
 
       - name: Static code analysis
-        if: > 
-          git diff -U0 origin/master
-          | clang-tidy-diff -p1 -path=build
         run: > 
           git diff -U0 origin/master
           | clang-tidy-diff -p1 -path=build
