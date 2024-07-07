@@ -38,7 +38,7 @@ jobs:
       - name: Static code analysis
         run: > 
           git diff -U0 origin/master
-          | clang-tidy-diff -p1 -path=build
+          | clang-tidy-diff-18.py -p1 -path=build
 
       - name: Clang-format
         uses: akopachov/git-clang-format-diff-action@v1.0.0
