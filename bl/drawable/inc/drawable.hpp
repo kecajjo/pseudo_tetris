@@ -37,6 +37,6 @@ class Drawable {
     std::list<Position> shape;
     std::unordered_map<std::shared_ptr<Drawable>, Position> children;
 
-    private:
+   private:
     static constexpr unsigned max_color_val = std::numeric_limits<unsigned char>::max();
 };
