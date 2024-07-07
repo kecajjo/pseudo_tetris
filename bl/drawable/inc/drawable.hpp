@@ -33,7 +33,7 @@ class Drawable {
    protected:
     explicit Drawable() = default;
 
-    Color color = {max_color_val, 255, max_color_val, max_color_val};
+    Color color = {max_color_val, max_color_val, max_color_val, max_color_val};
     std::list<Position> shape;
     std::unordered_map<std::shared_ptr<Drawable>, Position> children;
 
