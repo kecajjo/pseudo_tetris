@@ -24,6 +24,7 @@ jobs:
           && wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
           && sudo apt-get update
           && sudo apt-get install clang-tidy-18
+          && sudo apt-get install clang-format-18
       - name: Configure CMake
         run: >
           cd ${{github.workspace}}
@@ -41,6 +42,4 @@ jobs:
           | clang-tidy-diff-18.py -p1 -path=build
 
       - name: Clang-format
-        uses: akopachov/git-clang-format-diff-action@v1.0.0
-        with:
-          commit: origin/master # Ref to compare with
+        run: git-clang-format-18 --diff origin/master
