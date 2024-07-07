@@ -1,11 +1,11 @@
 #include "drawable.hpp"
 
-const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position>
-Drawable::getChildDrawables() const {
+std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> Drawable::getChildDrawables()
+    const {
     return children;
 }
 
-void Drawable::addChild(std::shared_ptr<Drawable> child, Drawable::Position p) {
+void Drawable::addChild(const std::shared_ptr<Drawable> &child, Drawable::Position p) {
     children[child] = p;
 }
 
@@ -15,20 +15,13 @@ Drawable::Drawable(const Drawable &d) {
     children = d.children;
 }
 
-Drawable &Drawable::operator=(const Drawable &d) {
-    color = d.color;
-    shape = d.shape;
-    children = d.children;
-    return *this;
-}
-
-Drawable::Drawable(Drawable &&d) {
+Drawable::Drawable(Drawable &&d) noexcept {
     color = d.color;
     shape = std::move(d.shape);
     children = std::move(d.children);
 }
 
-Drawable &Drawable::operator=(Drawable &&d) {
+Drawable &Drawable::operator=(Drawable &&d) noexcept {
     color = d.color;
     shape = std::move(d.shape);
     children = std::move(d.children);

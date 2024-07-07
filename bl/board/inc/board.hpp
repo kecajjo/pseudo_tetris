@@ -8,7 +8,7 @@
 // TODO rest of the class
 class Board : public Drawable {
    public:
-    void addBlock(std::shared_ptr<Block> blck, Drawable::Position p);
+    void addBlock(const std::shared_ptr<Block> &blck, Drawable::Position p);
 
    private:
     std::unordered_set<std::shared_ptr<Block>> blocks;
