@@ -1,6 +1,5 @@
 # Tetris
-![Build](https://github.com/kecajjo/pseudo_tetris/actions/workflows/<build_env.yaml/badge.svg)
-
+[![Build master](https://github.com/kecajjo/pseudo_tetris/actions/workflows/build_master.yaml/badge.svg?branch=master)](https://github.com/kecajjo/pseudo_tetris/actions/workflows/build_master.yaml)
 
 
 ## Purpose
