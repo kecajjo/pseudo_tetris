@@ -3,6 +3,12 @@ on:
   push:
     branches: 
       - master
+  pull_request:
+    types: 
+      - edited
+      - synchronize
+    branches:
+      - master
 
 jobs:
   build:
