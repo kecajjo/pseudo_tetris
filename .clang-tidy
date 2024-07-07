@@ -7,7 +7,15 @@ Checks: >
   readability-*,
   -modernize-use-trailing-return-type,
   -readability-identifier-length
-WarningsAsErrors: ''
+WarningsAsErrors: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  modernize-*,
+  performance-*,
+  readability-*,
+  -modernize-use-trailing-return-type,
+  -readability-identifier-length
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
 FormatStyle:     file
