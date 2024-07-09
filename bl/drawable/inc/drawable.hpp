@@ -26,7 +26,8 @@ class Drawable {
     std::list<Position> getShape() const { return shape; };
     Color getColor() const { return color; }
 
-    std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> getChildDrawables() const;
+    const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> &getChildDrawables()
+        const;
     void addChild(const std::shared_ptr<Drawable> &child, Position p);
 
    protected:

@@ -1,7 +1,7 @@
 #include "drawable.hpp"
 
-std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> Drawable::getChildDrawables()
-    const {
+const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position>
+    &Drawable::getChildDrawables() const {
     return children;
 }
 
