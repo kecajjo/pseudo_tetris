@@ -1,4 +1,5 @@
 Checks: >
+  cppcoreguidelines-*,
   clang-diagnostic-*,
   clang-analyzer-*,
   bugprone-*,
@@ -7,8 +8,10 @@ Checks: >
   readability-*,
   -modernize-use-trailing-return-type,
   -readability-identifier-length,
-  -performance-avoid-endl
+  -performance-avoid-endl,
+  -bugprone-easily-swappable-parameters
 WarningsAsErrors: >
+  cppcoreguidelines-*,
   clang-diagnostic-*,
   clang-analyzer-*,
   bugprone-*,
@@ -17,7 +20,8 @@ WarningsAsErrors: >
   readability-*,
   -modernize-use-trailing-return-type,
   -readability-identifier-length,
-  -performance-avoid-endl
+  -performance-avoid-endl,
+  -bugprone-easily-swappable-parameters
 HeaderFilterRegex: ''
 FormatStyle:     file
 
