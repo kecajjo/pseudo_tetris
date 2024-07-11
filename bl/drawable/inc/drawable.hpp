@@ -6,10 +6,12 @@
 #include <unordered_map>
 
 // TODO temp struct, will be removed in the next PR
-struct Color{int r,g,b,a;
-Color() : r(0), g(0), b(0), a(0) {}
-    Color(const uint8_t& red, const uint8_t& green, const uint8_t& blue, const uint8_t& alpha)
-        : r(red), g(green), b(blue), a(alpha) {}};
+struct Color {
+    int r, g, b, a;
+    Color() : r(0), g(0), b(0), a(0) {}
+    Color(const uint8_t &red, const uint8_t &green, const uint8_t &blue, const uint8_t &alpha)
+        : r(red), g(green), b(blue), a(alpha) {}
+};
 
 class Drawable {
    public:
