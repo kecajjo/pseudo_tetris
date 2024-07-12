@@ -41,4 +41,6 @@ jobs:
       - name: Clang-format
         run: >
           cd ${{github.workspace}}
-          && git-clang-format-18 --diff origin/master
+          && git diff --name-only --diff-filter=d origin/master
+          | grep -i -E '*.(hpp|cpp)'
+          | xargs clang-format-18 --Werror --dry-run
