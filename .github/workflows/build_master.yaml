@@ -37,6 +37,7 @@ jobs:
 
       - name: Clang-format
         run: >
-          find ${{github.workspace}} -name '*.hpp'
-          -o -name '*.cpp' -not -path './build/*'
+          cd ${{github.workspace}}
+          && find ${{github.workspace}} -name '*.hpp'
+          -o -name '*.cpp' -not -path '${{github.workspace}}/build/*'
           | xargs clang-format-18 --Werror --dry-run

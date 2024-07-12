@@ -17,10 +17,10 @@ class Drawable {
         uint8_t r, g, b, a;
     };
 
-    explicit Drawable(const Drawable &d);
-    virtual Drawable &operator=(const Drawable &d) = default;
+    explicit Drawable(const Drawable &d) = default;
+    Drawable &operator=(const Drawable &d) = default;
     explicit Drawable(Drawable &&d) noexcept;
-    virtual Drawable &operator=(Drawable &&d) noexcept;
+    Drawable &operator=(Drawable &&d) noexcept;
     virtual ~Drawable() = default;
 
     std::list<Position> getShape() const { return shape; };
@@ -33,9 +33,12 @@ class Drawable {
    protected:
     explicit Drawable() = default;
 
+    // TODO change in the drawing engine PR
+    // NOLINTBEGIN
     Color color = {max_color_val, max_color_val, max_color_val, max_color_val};
     std::list<Position> shape;
     std::unordered_map<std::shared_ptr<Drawable>, Position> children;
+    // NOLINTEND
 
    private:
     static constexpr unsigned max_color_val = std::numeric_limits<unsigned char>::max();

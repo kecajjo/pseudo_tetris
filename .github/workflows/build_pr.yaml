@@ -39,4 +39,6 @@ jobs:
           | clang-tidy-diff-18.py -p1 -path=build
 
       - name: Clang-format
-        run: git-clang-format-18 --diff origin/master
+        run: >
+          cd ${{github.workspace}}
+          && git-clang-format-18 --diff origin/master
