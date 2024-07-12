@@ -1,5 +1,7 @@
 #include "drawing_engine.hpp"
 
+#include <memory>
+
 DrawingEngine::DrawingEngine(const unsigned int& height, const unsigned int& width)
     : fb{FrameBuffer(height, width), FrameBuffer(height, width)}, width(width), height(height) {}
 
@@ -24,7 +26,8 @@ void DrawingEngine::setPixel(const Color& c, const unsigned int& x, const unsign
 
 void DrawingEngine::setPixel(const Color& c, const Drawable::Position& p) { setPixel(c, p.x, p.y); }
 
-void DrawingEngine::drawDrawable(const Drawable* const drawable, const Drawable::Position& p) {
+void DrawingEngine::drawDrawable(const std::shared_ptr<Drawable>& drawable,
+                                 const Drawable::Position& p) {
     auto color = drawable->getColor();
     auto shape = drawable->getShape();
     for (const auto& relativePos : shape) {
@@ -33,6 +36,6 @@ void DrawingEngine::drawDrawable(const Drawable* const drawable, const Drawable:
     }
     for (const auto& [childDrawable, relativePosition] : drawable->getChildDrawables()) {
         Drawable::Position childPos = relativePosition + p;
-        drawDrawable(childDrawable.get(), childPos);
+        drawDrawable(childDrawable, childPos);
     }
 }

@@ -16,7 +16,7 @@ class DrawingEngine {
     explicit DrawingEngine(DrawingEngine&& d) = delete;
     DrawingEngine& operator=(DrawingEngine&& d) noexcept = delete;
     void display();
-    void drawDrawable(const Drawable* drawable, const Drawable::Position& p);
+    void drawDrawable(const std::shared_ptr<Drawable>& drawable, const Drawable::Position& p);
 
    protected:
     virtual void drawFrameBuffer() = 0;

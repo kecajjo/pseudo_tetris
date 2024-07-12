@@ -1,6 +1,5 @@
 #pragma once
 
-#include <limits>
 #include <list>
 #include <memory>
 #include <unordered_map>
@@ -39,6 +38,6 @@ class Drawable {
 
    private:
     std::unordered_map<std::shared_ptr<Drawable>, Position> children;
-    Color color = {max_color_val, max_color_val, max_color_val, max_color_val};
-    static constexpr unsigned max_color_val = std::numeric_limits<unsigned char>::max();
+    Color color = {Color::max_color_val, Color::max_color_val, Color::max_color_val,
+                   Color::max_color_val};
 };

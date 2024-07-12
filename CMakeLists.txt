@@ -22,4 +22,4 @@ add_subdirectory(bl)
 add_subdirectory(gui)
 
 add_executable(tetris main/main.cpp)
-target_link_libraries(tetris PUBLIC blocks board frame_buffer)
+target_link_libraries(tetris PUBLIC blocks board ui)
