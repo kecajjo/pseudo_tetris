@@ -4,7 +4,7 @@
 
 #include "block.hpp"
 #include "block_factory.hpp"
-
+// NOLINTBEGIN
 int main() {
     std::vector<std::unique_ptr<Block>> v;
     v.push_back(BlockFactory::createBlock(BlockType::DIAGONAL));
@@ -18,3 +18,4 @@ int main() {
         std::cout << std::endl;
     }
 }
+// NOLINTEND
