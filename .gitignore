@@ -2,3 +2,6 @@ build
 .vscode
 clang_tidy_fixes.yaml
 .cache
+CMakeUserPresets.json
+CMakePresets.json
+.clangd

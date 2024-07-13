@@ -19,21 +19,29 @@ jobs:
           && sudo apt-get update
           && sudo apt-get install clang-tidy-18
           && sudo apt-get install clang-format-18
-      - name: Configure CMake
+          && pip install conan
+      - name: Run conan
         run: >
           cd ${{github.workspace}}
-          && cmake . -B ${{github.workspace}}/build
+          && mkdir build && cd build
+          && conan profile detect
+          && conan install ..
+
+      - name: Configure CMake
+        run: >
+          cd ${{github.workspace}}/build
+          && cmake .. --preset=conan-release
           -DTIDY=OFF
 
       - name: Build
         run: >
-          cd ${{github.workspace}}/build
+          cd ${{github.workspace}}/build/Release
           && make
 
       - name: Static code analysis
         run: > 
           cd ${{github.workspace}}
-          && run-clang-tidy-18 -p=build
+          && run-clang-tidy-18 -p=build/Release
 
       - name: Clang-format
         run: >
