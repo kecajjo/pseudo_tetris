@@ -1,20 +1,17 @@
 #pragma once
 
-#include <limits>
 #include <list>
 #include <memory>
-#include <tuple>
 #include <unordered_map>
-#include <utility>
+
+#include "color.hpp"
 
 class Drawable {
    public:
     struct Position {
         int x;
         int y;
-    };
-    struct Color {
-        uint8_t r, g, b, a;
+        Position operator+(const Position &p) const;
     };
 
     explicit Drawable(const Drawable &d) = default;
@@ -29,17 +26,18 @@ class Drawable {
     const std::unordered_map<std::shared_ptr<Drawable>, Drawable::Position> &getChildDrawables()
         const;
     void addChild(const std::shared_ptr<Drawable> &child, Position p);
+    void removeChild(const std::shared_ptr<Drawable> &child);
+    void clearChildren();
+    void setColor(const Color &c) { color = c; }
 
    protected:
     explicit Drawable() = default;
 
-    // TODO change in the drawing engine PR
-    // NOLINTBEGIN
-    Color color = {max_color_val, max_color_val, max_color_val, max_color_val};
+    // NOLINTNEXTLINE
     std::list<Position> shape;
-    std::unordered_map<std::shared_ptr<Drawable>, Position> children;
-    // NOLINTEND
 
    private:
-    static constexpr unsigned max_color_val = std::numeric_limits<unsigned char>::max();
+    std::unordered_map<std::shared_ptr<Drawable>, Position> children;
+    Color color = {Color::max_color_val, Color::max_color_val, Color::max_color_val,
+                   Color::max_color_val};
 };
