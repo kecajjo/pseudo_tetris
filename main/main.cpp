@@ -4,7 +4,16 @@
 
 #include "block.hpp"
 #include "block_factory.hpp"
+#include "board.hpp"
+#include "cli_color.hpp"
+#include "drawing_engine.hpp"
 // NOLINTBEGIN
+constexpr int height = 20;
+constexpr int width = 30;
+constexpr int xx = 2;
+constexpr int yy = 2;
+constexpr int sleepsec = 2;
+
 int main() {
     std::vector<std::unique_ptr<Block>> v;
     v.push_back(BlockFactory::createBlock(BlockType::DIAGONAL));
@@ -17,5 +26,15 @@ int main() {
         }
         std::cout << std::endl;
     }
+    std::shared_ptr<Board> b = std::make_shared<Board>();
+    Drawable::Position p{0, 0};
+    for (auto &s : v) {
+        b->addBlock(std::move(s), p);
+        p = p + Drawable::Position{xx, yy};
+    }
+    std::shared_ptr<DrawingEngine> de = std::make_shared<CliColor>(height, width);
+    de->drawDrawable(b, {0, 0});
+    de->display();
+    sleep(sleepsec);
 }
 // NOLINTEND
