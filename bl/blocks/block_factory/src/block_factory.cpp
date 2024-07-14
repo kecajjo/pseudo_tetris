@@ -11,16 +11,12 @@ std::unique_ptr<Block> BlockFactory::createBlock(BlockType type) {
     switch (type) {
         case BlockType::DIAGONAL:
             return std::make_unique<Diagonal>();
-            break;
         case BlockType::LSHAPE:
             return std::make_unique<LShape>();
-            break;
         case BlockType::TSHAPE:
             return std::make_unique<TShape>();
-            break;
         case BlockType::SQUARE:
             return std::make_unique<Square>();
-            break;
         default:
             return nullptr;
     }
