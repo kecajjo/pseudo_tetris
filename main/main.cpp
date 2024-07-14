@@ -1,9 +1,9 @@
-#include "block.hpp"
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "block_factory.hpp"
 
+#include "block.hpp"
+#include "block_factory.hpp"
 
 int main() {
     std::vector<std::unique_ptr<Block>> v;
