@@ -1,6 +1,8 @@
-add_library(blocks STATIC src/square.cpp src/diagonal.cpp src/lshape.cpp
-                          src/tshape.cpp)
+add_subdirectory(concrete_blocks)
+add_subdirectory(block_factory)
 
-target_include_directories(blocks PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+add_library(block INTERFACE)
 
-target_link_libraries(blocks PUBLIC drawable)
+target_include_directories(block INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+
+target_link_libraries(block INTERFACE drawable)
