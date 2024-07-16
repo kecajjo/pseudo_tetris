@@ -12,5 +12,5 @@ class CliColor : public DrawingEngine {
     ~CliColor() override;
 
    private:
-    void drawFrameBuffer() override;
+    void drawFrameBuffer() const override;
 };

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <memory>
+#include <thread>
+#include <chrono>
 #include <vector>
 
 #include "block.hpp"
@@ -35,6 +37,6 @@ int main() {
     std::shared_ptr<DrawingEngine> de = std::make_shared<CliColor>(height, width);
     de->drawDrawable(b, {0, 0});
     de->display();
-    sleep(sleepsec);
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 }
 // NOLINTEND

@@ -19,7 +19,7 @@ class DrawingEngine {
     void drawDrawable(const std::shared_ptr<Drawable>& drawable, const Drawable::Position& p);
 
    protected:
-    virtual void drawFrameBuffer() = 0;
+    virtual void drawFrameBuffer() const = 0;
     [[nodiscard]] std::optional<Color> getPixel(const unsigned int& x, const unsigned int& y) const;
     [[nodiscard]] std::optional<Color> getPixel(const Drawable::Position& p) const;
     [[nodiscard]] unsigned int getWidth() const { return width; }
