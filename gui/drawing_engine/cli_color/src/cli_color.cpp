@@ -45,8 +45,8 @@ CliColor::CliColor(const unsigned int& height, const unsigned int& width)
 CliColor::~CliColor() { endwin(); }
 
 void CliColor::drawFrameBuffer() const {
-    unsigned int height = getHeight();
-    unsigned int width = getWidth();
+    const unsigned int height = getHeight();
+    const unsigned int width = getWidth();
     cbreak();
     noecho();
     for (unsigned int y = 0; y < height; ++y) {
