@@ -5,3 +5,4 @@ add_subdirectory(drawing_engine)
 
 add_library(ui INTERFACE)
 target_link_libraries(ui INTERFACE drawing_engine drawable)
+target_link_libraries(ui INTERFACE cli_color)
